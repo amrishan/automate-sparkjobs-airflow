@@ -11,9 +11,8 @@ yesterday = datetime(2020, 9, 13)
 
 # Spark references
 SPARK_CODE = ('{}sparkfiles/transformation.py'.format(models.Variable.get('bucket')))
-pritn(SPARK_CODE)
+print(SPARK_CODE)
 dataproc_job_name = 'spark_job_dataproc'
-
 # STEP 3: Set default arguments for the DAG
 default_dag_args = {
     'start_date': yesterday,
