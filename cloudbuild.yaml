@@ -15,4 +15,4 @@ steps:
   && gsutil -m rsync -d -r ./sparkfiles gs://${_COMPOSER_BUCKET}/sparkfiles; 
   else echo "Working on $BRANCH_NAME"; fi']
 substitutions:
-    _COMPOSER_BUCKET: us-east1-dev-cloud-composer-a959d596-bucket
+    _COMPOSER_BUCKET: us-east1-dev-cloud-composer-fb241977-bucket
