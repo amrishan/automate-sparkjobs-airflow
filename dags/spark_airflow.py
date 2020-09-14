@@ -47,16 +47,19 @@ with models.DAG(
         task_id='create_dataproc',
         cluster_name='dataproc-cluster-demo-{{ ds_nodash }}',
         num_workers=2,
-        zone=models.Variable.get('dataproc_zone'),
+        zone=None,
         master_machine_type='n1-standard-1',
-        worker_machine_type='n1-standard-1')
+        worker_machine_type='n1-standard-1',
+        region=models.Variable.get('dataproc_zone')
+    )
     
     # Run the PySpark job
     run_spark = dataproc_operator.DataProcPySparkOperator(
         task_id='run_spark',
         main=SPARK_CODE,
         cluster_name='dataproc-cluster-demo-{{ ds_nodash }}',
-        job_name=dataproc_job_name
+        job_name=dataproc_job_name,
+        region=models.Variable.get('dataproc_zone')
         )
 
     # dataproc_operator
@@ -64,7 +67,8 @@ with models.DAG(
     delete_dataproc = dataproc_operator.DataprocClusterDeleteOperator(
         task_id='delete_dataproc',
         cluster_name='dataproc-cluster-demo-{{ ds_nodash }}',
-        trigger_rule=trigger_rule.TriggerRule.ALL_DONE)
+        trigger_rule=trigger_rule.TriggerRule.ALL_DONE,
+        region=models.Variable.get('dataproc_zone'))
     
     # STEP 6: Set DAGs dependencies
     # Each task should run after have finished the task before.
