@@ -10,7 +10,8 @@ from airflow.utils import trigger_rule
 yesterday = datetime(2020, 9, 13)
 
 # Spark references
-SPARK_CODE = ('{}spark_files/transformation.py'.format(models.Variable.get('bucket')))
+SPARK_CODE = ('{}sparkfiles/transformation.py'.format(models.Variable.get('bucket')))
+pritn(SPARK_CODE)
 dataproc_job_name = 'spark_job_dataproc'
 
 # STEP 3: Set default arguments for the DAG
