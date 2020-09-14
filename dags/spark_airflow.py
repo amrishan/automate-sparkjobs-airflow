@@ -7,7 +7,7 @@ from airflow.utils import trigger_rule
 
 # STEP 2:Define a start date
 #In this case yesterday
-yesterday = datetime(2020, 2, 29)
+yesterday = datetime(2020, 9, 13)
 
 # Spark references
 SPARK_CODE = ('{}spark_files/transformation.py'.format(models.Variable.get('bucket')))
