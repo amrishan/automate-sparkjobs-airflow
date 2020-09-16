@@ -29,9 +29,11 @@ class PySparkTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        cls.input_path = os.path.abspath(os.path.join('data/retail_day.csv'))
+        print(cls.input_path)
         cls.suppress_py4j_logging()
         cls.spark = cls.create_testing_pyspark_session()
-        cls.test_data_path = "gs://us-east1-dev-cloud-composer-fb241977-bucket/data/retail_day.csv"
+        cls.test_data_path = cls.input_path
         cls.df = cls.spark.read.options(header='true', inferSchema='true') \
                     .csv(cls.test_data_path)
         cls.df_exepcted = transform_data(cls.df, cls.spark)
