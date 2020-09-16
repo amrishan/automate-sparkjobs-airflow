@@ -1,6 +1,6 @@
 #testing1
 steps:
-- name: 'docker.io/library/python:3.7'
+- name: 'docker.io/godatadriven/pyspark'
   id: Test
   entrypoint: /bin/sh
   args:
