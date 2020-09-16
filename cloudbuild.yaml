@@ -1,6 +1,6 @@
 #testing1
 steps:
-- name: 'docker.io/godatadriven/pyspark'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   id: Test
   entrypoint: /bin/sh
   args:
