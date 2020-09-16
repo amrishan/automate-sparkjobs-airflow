@@ -4,6 +4,8 @@ import os
 import logging
 sys.path.append(os.path.abspath(os.path.join('example-airflow')))
 sys.path.append(os.path.abspath(os.path.join('../')))
+sys.path.append(os.path.abspath(os.path.join('')))
+print(sys.path)
 
 from sparkfiles.transformation import transform_data
 from pyspark.sql import SparkSession
