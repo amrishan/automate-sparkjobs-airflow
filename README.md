@@ -1,6 +1,13 @@
-# example-airflow
+# automate-sparkjobs-airflow
 ## Description
-This repository contains an airflow DAG, a test, and a Cloud Build file. It is an example of how to automate your testing and deployments of airflow pipelines to Cloud Compose, and managed Airflow service by Google.
+This repository demonstrates how to automate spark job on GCP dataproc cluster using CloudComposer(an managed AirFlow service on GCP) and to perform CI/CD using CloudBuild.
+
+Tools Used:
+GCP Dataproc
+GCP Cloud Build
+GCP Cloud Composer
+Unitest module
+Docker container to run tests and deploy the code DAGS folder
 
 ## Running the Tests
-`pytest`
+`unittest`
